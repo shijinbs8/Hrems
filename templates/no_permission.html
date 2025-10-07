@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Access Denied</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+        .message {
+            font-size: 1.8rem;
+            color: #e63946;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .animation-box {
+            width: 370px;
+            height: 370px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.0/lottie.min.js"></script>
+</head>
+<body>
+    <div class="animation-box" id="lottie-container"></div>
+    <div class="message">Access Denied — You are not authorized to view this page.</div>
+    <script>
+        // Example Lottie JSON animation link (use your preferred animation file)
+        var animationDataUrl = "https://assets1.lottiefiles.com/packages/lf20_dy38xj3f.json";
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-container'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: animationDataUrl
+        });
+    </script>
+</body>
+</html>

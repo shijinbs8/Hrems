@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="d-flex" style="min-height: 80vh;">
+    <!-- Sidebar -->
+    <!-- You can add sidebar here if needed -->
+
+    <!-- Main content -->
+    <main class="flex-grow-1 p-4 bg-light">
+        <h2 class="mb-4">My Profile</h2>
+
+        {% if success %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ success }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        {% if error %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ error }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-12">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="text-center mb-4">
+                                    <img src="/media/{{ profile.img }}" alt="Profile Image"
+                                         class="rounded-circle border border-3 border-primary" width="150" height="150" />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="profile_image" class="form-label fw-bold">Upload New Image</label>
+                                    <input type="file" name="profile_image" class="form-control" id="profile_image">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Employee ID</label>
+                                    <input type="text" class="form-control bg-light" value="{{ profile.employee_id }}" readonly>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Username</label>
+                                    <input type="text" class="form-control bg-light" value="{{ profile.user.username }}" readonly>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="department" class="form-label fw-bold">Department</label>
+                                    <input type="text" name="department" id="department" class="form-control" value="{{ profile.department }}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="position" class="form-label fw-bold">Position</label>
+                                    <input type="text" name="position" id="position" class="form-control" value="{{ profile.position }}">
+                                </div>
+
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary fw-semibold">Update Profile</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+{% endblock %}

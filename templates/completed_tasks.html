@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card mb-4">
+<div class="card-header">
+    <h5>Your Completed Jobs</h5>
+  </div>
+  <div class="card-body">
+    {% if jobs_with_chain %}
+      {% for item in jobs_with_chain %}
+        <div class="mb-4">
+          <table class="table align-items-center mb-0">
+            <thead>
+              <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Step</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Assigned To</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Assigned By</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Due Date</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for step in item.chain %}
+              <tr>
+                <td>#{{ forloop.counter }}</td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">
+                    {{ step.assigned_to.user.get_full_name|default:step.assigned_to.user.username }}
+                  </span>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">
+                    {{ step.assigned_by.user.get_full_name|default:step.assigned_by.user.username }}
+                  </span>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">
+                    {{ step.due_date|date:"d M Y" }}
+                  </span>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <span class="text-xs font-weight-bold">
+                    {% if step.is_completed %}Completed
+                    {% elif step.is_resigned %}Reassigned
+                    {% else %}Pending
+                    {% endif %}
+                  </span>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No completed jobs assigned.</p>
+    {% endif %}
+  </div>
+</div>
+
+<div class="card mb-4">
+  <div class="card-header">
+    <h5>Reassigned Tasks</h5>
+  </div>
+  <div class="card-body">
+    {% if reassigned_tasks %}
+    <table class="table align-items-center mb-0">
+      <thead>
+        <tr>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Job Description</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reassigned By</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Assigned To</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Assigned Date</th>
+          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reassigned On</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for reassignment in reassigned_tasks %}
+        <tr>
+          <td>
+            <span class="text-xs font-weight-bold">{{ reassignment.job.description }}</span>
+          </td>
+          <td class="align-middle text-center text-sm">
+            <span class="text-xs font-weight-bold">{{ reassignment.reassigned_by.user.get_full_name|default:reassignment.reassigned_by.user.username }}</span>
+          </td>
+          <td class="align-middle text-center text-sm">
+            <span class="text-xs font-weight-bold">{{ reassignment.to_employee.user.get_full_name|default:reassignment.to_employee.user.username }}</span>
+          </td>
+          <td class="align-middle text-center text-sm">
+            <span class="text-xs font-weight-bold">{{ reassignment.job.date_assigned|date:"d M Y" }}</span>
+          </td>
+          <td class="align-middle text-center text-sm">
+            <span class="text-xs font-weight-bold">{{ reassignment.reassigned_on|date:"d M Y H:i" }}</span>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No reassigned tasks.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

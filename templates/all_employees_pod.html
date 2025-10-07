@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-lg-12 col-md-10 col-12 mx-auto mt-4">
+  <div class="card h-100">
+    <div class="card-header bg-primary text-white">
+      <h6>All Employees POD Status (Date-wise)</h6>
+    </div>
+    <div class="card-body p-3">
+
+      {% if logs_by_date %}
+        {% for date, logs in logs_by_date.items %}
+          <h6 class="mt-4">{{ date|date:"d M Y" }}</h6>
+          <table class="table align-items-center mb-4">
+            <thead>
+              <tr>
+                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Employee</th>
+                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Plan of Day (POD)</th>
+                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Related Job</th>
+                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">End of Day (EOD)</th>
+                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">POD Submitted</th>
+                <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">EOD Submitted</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for log in logs %}
+                <tr>
+                  <td>{{ log.employee.user.get_full_name|default:log.employee.user.username }}</td>
+                  <td>
+                    {% if log.pod %}
+                      <span data-bs-toggle="tooltip" title="{{ log.pod }}">
+                        {{ log.pod|truncatechars:30 }}
+                      </span>
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                  
+                  <td>
+                    {% if log.related_assignment %}
+                      {{ log.related_assignment.description|truncatechars:50 }}
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if log.eod %}
+                      <span data-bs-toggle="tooltip" title="{{ log.eod }}">
+                        {{ log.eod|truncatechars:30 }}
+                      </span>
+                    {% else %}
+                      -
+                    {% endif %}
+                  </td>
+                  <td>
+                    {% if log.pod %}
+                      <span class="badge bg-success">Yes</span>
+                    {% else %}
+                      <span class="badge bg-warning text-dark">No</span>
+                    {% endif %}
+                  </td>
+                  
+                  <td>
+                    {% if log.eod %}
+                      <span class="badge bg-success">Yes</span>
+                    {% else %}
+                      <span class="badge bg-warning text-dark">No</span>
+                    {% endif %}
+                  </td>
+                  
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% endfor %}
+      {% else %}
+        <p>No PODs found.</p>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  </script>
+  
+{% endblock %}

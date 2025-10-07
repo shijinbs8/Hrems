@@ -1,0 +1,27 @@
+<!-- templates/edit_daily_log.html -->
+{% extends 'layout-vertical.html' %}
+{% block page_content %}
+
+<div class="card">
+  <div class="card-body">
+    <h4>Edit Daily Log ({{ log.date }})</h4>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label>Plan of Day (POD):</label>
+        <textarea name="pod" class="form-control" rows="3">{{ log.pod }}</textarea>
+      </div>
+
+      <div class="mb-3">
+        <label>End of Day (EOD):</label>
+        <textarea name="eod" class="form-control" rows="3">{{ log.eod }}</textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+      <a href="{% url 'my_daily_logs' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

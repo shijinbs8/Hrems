@@ -1,0 +1,114 @@
+
+{% extends "base.html" %}
+{% load static %}
+    {% block content %}
+
+    <style>
+        /* Ensure toggle switch is centered in the cell */
+.form-check.form-switch {
+    justify-content: center;
+}
+
+/* Customize toggle switch colors */
+.form-check-input:checked {
+    background-color: #4caf50; /* green */
+    border-color: #4caf50;
+}
+
+.form-check-input {
+    cursor: pointer;
+}
+
+/* Hover effect */
+.form-check-input:hover {
+    filter: brightness(85%);
+}
+
+
+
+
+
+/* Avatar image style */
+.avatar-sm {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+    </style>
+    <div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Employee table</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employee</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Department</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Senior</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
+                      <th class="text-secondary opacity-7"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for emp in employee_list %}
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <img src="{% static 'assets/img/default-avatar.png' %}" class="avatar avatar-sm me-3 border-radius-lg"
+                                alt="{{ emp.user.username }}">
+                            </div>
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">{{ emp.user.get_full_name|default:emp.user.username }}</h6>
+                              <p class="text-xs text-secondary mb-0">{{ emp.user.email }}</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0">{{ emp.position }}</p>
+                          <p class="text-xs text-secondary mb-0">{{ emp.department }}</p>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                            <form method="post" action="{% url 'employee_list' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="employee_id" value="{{ emp.id }}">
+                                
+                                <div class="form-check form-switch d-flex justify-content-center">
+                                  <input class="form-check-input" type="checkbox" role="switch" id="seniorSwitch{{ emp.id }}" name="is_senior" value="on" {% if emp.is_senior %}checked{% endif %} onchange="this.form.submit();">
+                                  <label class="form-check-label" for="seniorSwitch{{ emp.id }}"></label>
+                                </div>
+                              </form>
+                              
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold">{{ emp.user.date_joined|date:"d/m/Y" }}</span>
+                        </td>
+                        <td class="align-middle">
+                          <a href="" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
+                            data-original-title="Edit user">Edit</a>
+                        </td>
+                      </tr>
+                    {% empty %}
+                      <tr>
+                        <td colspan="5" class="text-center">No employees found.</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                  
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        {% endblock %}
+   

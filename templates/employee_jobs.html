@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+
+
+  <!-- ✅ Completed Jobs -->
+<!-- ✅ Completed Jobs -->
+<div class="card mb-4">
+    <div class="card-header">
+      <h5>Completed Jobs</h5>
+    </div>
+    <div class="card-body">
+      {% if completed_jobs %}
+      <table class="table table-striped align-items-center mb-0">
+        <thead>
+          <tr>
+            <th>Job Description</th>
+            <th class="text-center">Assigned By</th>
+            <th class="text-center">Due Date</th>
+            <th class="text-center">Completed On</th>
+            <th class="text-center">Status</th> <!-- ✅ New Column -->
+          </tr>
+        </thead>
+        <tbody>
+          {% for job in completed_jobs %}
+          <tr>
+            <td>{{ job.description }}</td>
+            <td class="text-center">{{ job.assigned_by.user.get_full_name|default:job.assigned_by.user.username }}</td>
+            <td class="text-center">{{ job.due_date|date:"d M Y" }}</td>
+            <td class="text-center">{{ job.completion_date|date:"d M Y" }}</td>
+            <td class="text-center">
+              {% if job.completion_date and job.due_date %}
+                {% if job.completion_date <= job.due_date %}
+                  <span class="text-success fw-bold">On Time</span>
+                {% else %}
+                  <span class="text-danger fw-bold">Overdue</span>
+                {% endif %}
+              {% else %}
+                <em>N/A</em>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>No completed jobs.</p>
+      {% endif %}
+    </div>
+  </div>
+  
+
+  <!-- ✅ Jobs I Created -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <h5>Jobs I Created</h5>
+    </div>
+    <div class="card-body">
+      {% if created_jobs %}
+      <table class="table table-striped align-items-center mb-0">
+        <thead>
+          <tr>
+            <th>Job Description</th>
+            <th class="text-center">Assigned To</th>
+            <th class="text-center">Date Assigned</th>
+            <th class="text-center">Completed On</th>
+            <th class="text-center">Status</th> <!-- ✅ New Column -->
+         
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for job in created_jobs %}
+          <tr>
+            <td>{{ job.description }}</td>
+            <td class="text-center">
+              {% if job.assigned_to %}
+                {{ job.assigned_to.user.get_full_name|default:job.assigned_to.user.username }}
+              {% else %}
+                <em>Unassigned</em>
+              {% endif %}
+            </td>
+            <td class="text-center">{{ job.date_assigned|date:"d M Y" }}</td>
+            <td class="text-center">{{ job.completion_date|date:"d M Y" }}</td>
+            <td class="text-center">
+              {% if job.completion_date and job.due_date %}
+                {% if job.completion_date <= job.due_date %}
+                  <span class="text-success fw-bold">On Time</span>
+                {% else %}
+                  <span class="text-danger fw-bold">Overdue</span>
+                {% endif %}
+              {% else %}
+                <em>N/A</em>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>You haven’t created any jobs.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- ✅ Jobs I Reassigned -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <h5>Jobs I Reassigned</h5>
+    </div>
+    <div class="card-body">
+      {% if reassigned_jobs %}
+      <table class="table table-striped align-items-center mb-0">
+        <thead>
+          <tr>
+            <th class="text-center">Job Creator</th>
+            <th>Job Description</th>
+           
+            <th class="text-center">Reassigned To</th>
+            <th class="text-center">Original Assigned Date</th>
+            <th class="text-center">Reassigned On</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for history in reassigned_jobs %}
+          <tr>
+            <td class="text-center">
+            
+                  {{ history.job.assigned_by }}
+          
+
+              </td>
+    
+            <td>{{ history.job.description }}</td>
+       
+            <td class="text-center">
+              {% if history.to_employee %}
+                {{ history.to_employee.user.get_full_name|default:history.to_employee.user.username }}
+              {% else %}
+                <em>N/A</em>
+              {% endif %}
+            </td>
+            <td class="text-center">{{ history.job.date_assigned|date:"d M Y" }}</td>
+            <td class="text-center">{{ history.timestamp|date:"d M Y" }}</td>
+            <td>{{history.action}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>You haven’t reassigned any jobs.</p>
+      {% endif %}
+    </div>
+  </div>
+
+</div>
+{% endblock %}

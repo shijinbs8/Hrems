@@ -1,0 +1,25 @@
+<form method="post">
+    {% csrf_token %}
+    
+    <label for="pod">Plan of Day:</label>
+    <textarea name="pod" id="pod" rows="3" class="form-control" placeholder="What you plan to do today..." required>{{ log.pod }}</textarea>
+  
+    <label for="description">Work Done:</label>
+    <textarea name="description" id="description" rows="5" class="form-control" placeholder="Describe what you did today..." required>{{ log.description }}</textarea>
+  
+    <label for="eod">End of Day Notes:</label>
+    <textarea name="eod" id="eod" rows="3" class="form-control" placeholder="Any final notes...">{{ log.eod }}</textarea>
+  
+    <label for="related_assignment">Related Job (optional):</label>
+    <select name="related_assignment" id="related_assignment" class="form-control">
+      <option value="">-- Select Job --</option>
+      {% for job in assignments %}
+        <option value="{{ job.id }}" {% if log.related_assignment and log.related_assignment.id == job.id %}selected{% endif %}>
+          {{ job.description|truncatechars:50 }}
+        </option>
+      {% endfor %}
+    </select>
+  
+    <button type="submit" class="btn btn-primary mt-3">Submit Daily Log</button>
+  </form>
+  

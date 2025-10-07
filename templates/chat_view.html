@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+{% block content %}
+    <title>Chat with {{ other_participant.user.username }}</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        /* Chat container card */
+        #chat-card {
+            max-width: 100%;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+            display: flex;
+            flex-direction: column;
+            height: 800px;
+            overflow: hidden;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+  /* Header */
+        #chat-header {
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 20px;
+            border-bottom: 1px solid #dbdbdb;
+            background: #fafafa;
+            color: #262626;
+            text-align: center;
+            position: relative;
+        }
+
+        #chat-header img.avatar {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+
+        /* Messages container */
+        #message-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #fafafa;
+        }
+
+        /* Message bubbles */
+        .message {
+            max-width: 75%;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            border-radius: 18px;
+            font-size: 15px;
+            line-height: 1.3;
+            position: relative;
+            word-wrap: break-word;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* Sent messages (right) */
+        .sent {
+            background-color: #dcf8c6;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        /* Received messages (left) */
+        .received {
+            background-color: white;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        /* Timestamp */
+        .timestamp {
+            font-size: 11px;
+            color: #999;
+            margin-top: 6px;
+            display: block;
+        }
+
+        /* Input container */
+        #message-form {
+            padding: 15px 20px;
+            border-top: 1px solid #dbdbdb;
+            background: white;
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Text input */
+        #message-text {
+            flex-grow: 1;
+            border: 1px solid #dbdbdb;
+            border-radius: 9999px;
+            padding: 10px 20px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.2s border-color ease-in-out;
+        }
+
+        #message-text:focus {
+            border-color: #3897f0;
+        }
+
+        /* Send button */
+        button {
+            background-color: #3897f0;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 9999px;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        button:hover {
+            background-color: #2d78f4;
+        }
+    </style>
+
+    <div id="chat-card">
+        <div id="chat-header">Chat with {{ other_participant.user.username }}       
+                                   <img src="/media/{{ other_participant.img }}" class="avatar" alt="xd">
+</div>
+        <div id="message-container">
+            {% for messag in messages %}
+                {% if messag.sender.user == request.user %}
+                    <div class="message sent">
+                        {{ messag.message }}
+                        <span class="timestamp">{{ messag.timestamp|date:"M d, Y H:i" }}</span>
+                    </div>
+                {% else %}
+                    <div class="message received">
+                        {{ messag.message }}
+                        <span class="timestamp">{{ messag.timestamp|date:"M d, Y H:i" }}</span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <form id="message-form">
+            <input type="text" id="message-text" autocomplete="off" placeholder="Type your message" required />
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+   $(document).ready(function() {
+    // Send message on form submit
+    $('#message-form').on('submit', function(e) {
+        e.preventDefault();
+        var text = $('#message-text').val().trim();
+        if(text.length === 0) return;
+
+        $.ajax({
+            type: "POST",
+            url: "{% url 'send_message' conversation.id %}",
+            data: {
+                'text': text,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                $('#message-container').append(
+                    '<div class="message sent">' +
+                    response.text +
+                    '<span class="timestamp">' + response.timestamp + '</span></div>'
+                );
+                $('#message-text').val('');
+                $('#message-container').scrollTop($('#message-container')[0].scrollHeight);
+            },
+            error: function() {
+                alert('Error sending message.');
+            }
+        });
+    });
+
+    // Polling to refresh messages every 1 second without CSRF token
+    setInterval(function() {
+        $.ajax({
+            type: "GET",
+            url: "{% url 'get_messages' conversation.id %}",
+            success: function(data) {
+                $('#message-container').empty();
+                data.messages.forEach(function(msg) {
+                    let messageClass = (msg.sender === '{{ request.user.username }}') ? 'sent' : 'received';
+                    $('#message-container').append(
+                        '<div class="message ' + messageClass + '">' +
+                        msg.text +
+                        '<span class="timestamp">' + msg.timestamp + '</span></div>'
+                    );
+                });
+                $('#message-container').scrollTop($('#message-container')[0].scrollHeight);
+            },
+            error: function() {
+                console.warn('Error fetching messages.');
+            }
+        });
+    }, 5000);
+});
+
+// Poll for unseen messages count every 5 seconds
+setInterval(function() {
+    $.ajax({
+        url: "{% url 'check_unseen_messages' conversation.id %}",
+        success: function(data) {
+            if (data.unseen_count > 0) {
+                $('#notification-badge').text(data.unseen_count).show();
+            } else {
+                $('#notification-badge').hide();
+            }
+        }
+    });
+}, 5000);
+
+// When the messages are loaded or displayed
+function markMessagesAsSeen() {
+    $.ajax({
+        type: 'POST',
+        url: "{% url 'mark_messages_as_seen' conversation.id %}",
+        data: {'csrfmiddlewaretoken': '{{ csrf_token }}'},
+        success: function() {
+            $('#notification-badge').hide();
+        }
+    });
+}
+// Call the function every 5 seconds (5000 milliseconds)
+setInterval(markMessagesAsSeen, 5000);
+
+// Optionally, call it once immediately on page load
+$(document).ready(function() {
+    markMessagesAsSeen();
+});
+
+
+    </script>
+
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-lg-12 col-md-8 col-12 mx-auto">
+  <div class="card z-index-0 fadeIn3 fadeInBottom">
+    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+      <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+        <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Assign Job</h4>
+      </div>
+    </div>
+    <div class="card-body">
+      <form method="post">
+        {% csrf_token %}
+        
+        {% if is_superuser %}
+          <div class="input-group input-group-static mb-4">
+            <label for="assigned_by" class="ms-0">Assigning Senior</label>
+            <select class="form-control" id="assigned_by" name="assigned_by" required>
+              <option value="">Select Senior</option>
+              {% for senior in assigners %}
+                <option value="{{ senior.id }}">{{ senior.user.get_full_name|default:senior.user.username }} ({{ senior.position }})</option>
+              {% endfor %}
+            </select>
+          </div>
+        {% endif %}
+        
+        <div class="input-group input-group-static mb-4">
+          <label for="assigned_to" class="ms-0">Employee</label>
+          <select class="form-control" id="assigned_to" name="assigned_to" required>
+            <option value="">Select Employee</option>
+            {% for emp in assignees %}
+              <option value="{{ emp.id }}">{{ emp.user.get_full_name|default:emp.user.username }} ({{ emp.position }})</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="input-group input-group-dynamic my-3">
+          <textarea class="form-control" id="description" name="description" rows="5" placeholder="Describe the job..." required></textarea>
+        </div>
+
+        <div class="input-group input-group-outline mb-4">
+          <label class="form-label" for="due_date"></label>
+          <input type="date" class="form-control" id="due_date" name="due_date" required>
+        </div>
+
+        <!-- ✅ Hidden parent job field (only used if creating sub-task / reassignment) -->
+        {% if parent_job %}
+          <input type="hidden" name="parent_job" value="{{ parent_job.id }}">
+          <p class="text-sm text-muted">
+            This job is a <strong>sub-task</strong> of: 
+            <em>{{ parent_job.description|truncatechars:50 }}</em>
+          </p>
+        {% endif %}
+
+        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Assign Job</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

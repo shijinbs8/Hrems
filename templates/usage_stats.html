@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Usage Stats</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h2>Most Used Features</h2>
+  <canvas id="featuresChart"></canvas>
+
+  <h2>Usage by Users</h2>
+  <canvas id="usersChart"></canvas>
+
+  <script>
+    const featureData = {{ feature_usage|safe }};
+    const userData = {{ user_usage|safe }};
+
+    // Feature chart
+    new Chart(document.getElementById('featuresChart'), {
+      type: 'bar',
+      data: {
+        labels: Object.keys(featureData),
+        datasets: [{
+          label: 'Feature Usage',
+          data: Object.values(featureData)
+        }]
+      }
+    });
+
+    // User chart
+    new Chart(document.getElementById('usersChart'), {
+      type: 'bar',
+      data: {
+        labels: Object.keys(userData),
+        datasets: Object.keys(userData).map(user => ({
+          label: `User ${user}`,
+          data: Object.values(userData[user]),
+        }))
+      }
+    });
+  </script>
+</body>
+</html>

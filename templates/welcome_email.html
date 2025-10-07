@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to Jezt AI!</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f6f8; margin:0; padding:0;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px; margin:auto; background-color:#ffffff; border-radius:10px; overflow:hidden;">
+    <tr style="background-color:#4B49AC; color:#ffffff;">
+      <td style="padding:20px; text-align:center;">
+        <h1>Welcome to Jezt AI!</h1>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:30px; color:#333333;">
+        <p>Hi <strong>{{ username }}</strong>,</p>
+        <p>We are thrilled to have you on board at <strong>{{ company }}</strong>!</p>
+        <p>Here are your details:</p>
+        <table cellpadding="5" cellspacing="0" style="border:1px solid #ddd; border-radius:5px; width:100%; margin-top:10px;">
+          <tr style="background-color:#f4f4f4;">
+            <td><strong>Employee ID</strong></td>
+            <td>{{ employee_id }}</td>
+          </tr>
+          <tr>
+            <td><strong>Department</strong></td>
+            <td>{{ department }}</td>
+          </tr>
+          <tr style="background-color:#f4f4f4;">
+            <td><strong>Position</strong></td>
+            <td>{{ position }}</td>
+          </tr>
+        </table>
+        <p style="margin-top:20px;">We look forward to achieving great things together!</p>
+        <p>Best Regards,<br>Jezt AI Team</p>
+      </td>
+    </tr>
+    <tr style="background-color:#f4f6f8; text-align:center; color:#999999; font-size:12px;">
+      <td style="padding:10px;">
+        &copy; {{ company }} {{ now|date:"Y" }}. All rights reserved.
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

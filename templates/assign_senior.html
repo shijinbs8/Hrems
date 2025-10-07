@@ -1,0 +1,19 @@
+<h2>Assign Senior to Employee</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="employee_id">Select Employee:</label>
+    <select name="employee_id" id="employee_id" required>
+        {% for emp in employees %}
+            <option value="{{ emp.id }}">{{ emp.user.username }} ({{ emp.position }})</option>
+        {% endfor %}
+    </select>
+
+    <label for="senior_id">Select Senior:</label>
+    <select name="senior_id" id="senior_id" required>
+        {% for senior in seniors %}
+            <option value="{{ senior.id }}">{{ senior.user.username }} ({{ senior.position }})</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Assign Senior</button>
+</form>

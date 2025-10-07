@@ -1,0 +1,351 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid py-4">
+        <div class="row">
+          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+              <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10">weekend</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Employee Name</p>
+                  <h4 class="mb-0">{{request.user}}</h4>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <br>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+              <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10">person</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Total Employees</p>
+                  <h4 class="mb-0">{{ total_employees }}</h4>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <br>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+              <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10">person</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Tasks Completed</p>
+                  <h4 class="mb-0">--</h4>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <br>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-sm-6">
+            <div class="card">
+              <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10">weekend</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Tasks Pending</p>
+                  <h4 class="mb-0">--</h4>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+    <br>
+    <br>
+  
+
+   
+    
+
+
+    
+    <div class="card mb-4">
+        <div class="card-header">
+          <h5>Your Assigned Jobs</h5>
+        </div>
+        <div class="card-body">
+          {% if jobs %}
+          <table class="table align-items-center mb-0">
+            <thead>
+              <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Job Description</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Assigned By</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Due Date</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for job in jobs %}
+                <tr>
+                  <td>
+                    <div class="d-flex px-2 py-1">
+                      <div class="d-flex flex-column justify-content-center">
+                        <span class="text-xs font-weight-bold">{{ job.description }}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <span class="text-xs font-weight-bold">{{ job.assigned_by.user.get_full_name|default:job.assigned_by.user.username }}</span>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <span class="text-xs font-weight-bold">{{ job.due_date|date:"d M Y" }}</span>
+                  </td>
+                  {% if request.user.employeeprofile.is_senior%}
+                  <td class="align-middle text-center">
+                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#reassignModal{{ job.id }}">Reassign</button>
+                  </td>
+                  {% endif %}
+                  <td>
+                
+                    <form method="post" action="{% url 'complete_task' job.id %}">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-success btn-sm">Mark Completed</button>
+                    </form>
+                  </td>
+                </tr>
+                <div class="modal fade" id="reassignModal{{ job.id }}" tabindex="-1" aria-labelledby="reassignModalLabel{{ job.id }}" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <form method="post" action="{% url 'reassign_job' job.id %}">
+                      {% csrf_token %}
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="reassignModalLabel{{ job.id }}">Reassign Job</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <label for="assigned_to_{{ job.id }}" class="form-label">Assign to Junior</label>
+                          <select class="form-select" id="assigned_to_{{ job.id }}" name="assigned_to" required>
+                            <option value="">Select Junior</option>
+                            {% for junior in employee_list %}
+                            <option value="{{ junior.id }}">{{ junior.user.get_full_name|default:junior.user.username }} ({{ junior.position }})</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                          <button type="submit" class="btn btn-primary">Reassign</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p>No pending jobs assigned.</p>
+        {% endif %}
+        
+        
+        </div>
+      </div>
+
+
+        <div class="row mb-4">
+          <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+            <div class="card">
+              <div class="card-header pb-0">
+                <div class="row">
+                  <div class="col-lg-6 col-7">
+                    <h6>Employee List</h6>
+                    <p class="text-sm mb-0">
+                      <i class="fa fa-check text-info" aria-hidden="true"></i>
+                      {% comment %} <span class="font-weight-bold ms-1">30 done</span> this month {% endcomment %}
+                    </p>
+                  </div>
+            
+                  
+                </div>
+              </div>
+              <div class="card-body px-0 pb-2">
+                <div class="table-responsive">
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employees</th>
+      
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Position</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Department</th>
+                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Chat</th> 
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for emp in employee_list %}
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <img src="/media/{{ emp.img }}" class="avatar avatar-xl me-3" alt="xd">
+                            </div> 
+                       
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">{{ emp.user.username }}</h6>
+                            </div>
+                          </div>
+                        </td>
+                     
+                        <td class="align-middle text-center text-sm">
+                          <span class="text-xs font-weight-bold"> {{ emp.position }} </span>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> {{ emp.department }} </span>
+                          </td>
+                        <td class="align-middle text-center text-sm" style="position: relative;">
+    <a href="{% url 'start_conversation' emp.user.id %}" 
+       style="position: relative; display: inline-block; padding: 6px 12px; 
+              background-color: #25D366; color: white; border-radius: 4px; 
+              text-decoration: none; font-weight: 600;">
+        Chat
+        <span style="
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background-color: #ff3b30; 
+            color: white;
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1;
+            min-width: 20px;
+            text-align: center;
+            box-shadow: 0 0 2px rgba(0,0,0,0.5);
+            display: {% if emp.unseen_count|default:0 > 0 %}inline-block{% else %}none{% endif %};
+        ">
+            {{ emp.unseen_count }}
+        </span>
+    </a>
+</td>
+
+
+
+                      </tr>
+                      {% endfor %}
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card h-100">
+              <div class="card-header pb-0">
+                <h6>Daily Log</h6>
+              </div>
+              <div class="card-body p-3">
+                <form method="post">
+                  {% csrf_token %}
+          
+                  <!-- Plan of Day + Job -->
+                  {% if not log.pod %}
+                    <div class="input-group input-group-dynamic my-3">
+                      <textarea class="form-control" name="pod" rows="4" placeholder="Write your plan of the day..." required></textarea>
+                    </div>
+          
+                    <div class="input-group input-group-static mb-4">
+                      <label class="ms-0">Select Job (optional)</label>
+                      <select class="form-control" name="related_assignment">
+                        <option value="">-- Select Job --</option>
+                        {% for job in assignments %}
+                          <option value="{{ job.id }}">{{ job.description|truncatechars:50 }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+          
+                    <button type="submit" class="btn bg-gradient-primary w-100 mb-2">Submit Plan</button>
+          
+                  {% else %}
+                    <!-- Show POD and Job as readonly -->
+                    <div class="mb-3">
+                      <label class="form-label">Plan of Day</label>
+                      <textarea class="form-control" rows="4" readonly>{{ log.pod }}</textarea>
+                    </div>
+          
+                    {% if log.related_assignment %}
+                      <div class="mb-3">
+                        <label class="form-label">Job</label>
+                        <input type="text" class="form-control" value="{{ log.related_assignment.description }}" readonly>
+                      </div>
+                    {% endif %}
+          
+                    <!-- EOD Section -->
+                    {% if not log.eod %}
+                      <div class="input-group input-group-dynamic my-3">
+                        <textarea class="form-control" name="eod" rows="4" placeholder="Write your end of day summary..." required></textarea>
+                      </div>
+                      <button type="submit" class="btn bg-gradient-success w-100 mb-2">Submit EOD</button>
+                    {% else %}
+                      <div class="mb-3">
+                        <label class="form-label">End of Day</label>
+                        <textarea class="form-control" rows="4" readonly>{{ log.eod }}</textarea>
+                      </div>
+                      <button class="btn btn-secondary w-100" disabled>Submitted</button>
+                    {% endif %}
+                  {% endif %}
+          
+                </form>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <footer class="footer py-4  ">
+          <div class="container-fluid">
+            <div class="row align-items-center justify-content-lg-between">
+              <div class="col-lg-6 mb-lg-0 mb-4">
+                <div class="copyright text-center text-sm text-muted text-lg-start">
+                  © <script>
+                    document.write(new Date().getFullYear())
+                  </script>,
+                  made with <i class="fa fa-heart"></i> by
+                  <a href="" class="font-weight-bold" target="_blank">Jezt Ai</a>
+                  for a better web.
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                  <li class="nav-item">
+                    <a href="" class="nav-link text-muted" target="_blank">Jezt Devops</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="" class="nav-link text-muted" target="_blank">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="" class="nav-link text-muted" target="_blank">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="" class="nav-link pe-0 text-muted" target="_blank">License</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+        {% endblock %}
+   

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-lg-12 col-md-10 col-12 mx-auto mt-4">
+  <div class="card h-100">
+    <div class="card-header bg-primary text-white">
+      <h6>My Daily Logs</h6>
+    </div>
+    <div class="card-body p-3">
+      {% if logs %}
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr>
+            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Date</th>
+            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Plan of Day (POD)</th>
+            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Related Job</th>
+            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">End of Day (EOD)</th>
+            <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Submitted</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for log in logs %}
+          <tr>
+            <td>{{ log.date|date:"d M Y" }}</td>
+            <td>{{ log.pod|default:"-" }}</td>
+            <td>
+              {% if log.related_assignment %}
+                {{ log.related_assignment.description|truncatechars:50 }}
+              {% else %}
+                -
+              {% endif %}
+            </td>
+            <td>{{ log.eod|default:"-" }}</td>
+            <td>
+              {% if log.is_eod_submitted %}
+                <span class="badge bg-success">Yes</span>
+              {% else %}
+                <span class="badge bg-warning text-dark">No</span>
+              {% endif %}
+            </td>
+            <td>
+    {% if log.can_edit %}
+      <a href="{% url 'edit_daily_log' log.id %}" class="btn btn-sm btn-warning">Edit</a>
+    {% else %}
+      <span class="text-muted">Edit Locked</span>
+    {% endif %}
+  </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+        <p>No daily logs found.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
