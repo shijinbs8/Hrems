@@ -38,7 +38,7 @@ from datetime import timedelta
 
 class DailyLog(models.Model):
     employee = models.ForeignKey(EmployeeProfile, on_delete=models.CASCADE, related_name='daily_logs')
-    created_at = models.DateTimeField(auto_now_add=True)
+    # created_at = models.DateTimeField(auto_now_add=True)
     date = models.DateField(auto_now_add=True)
     pod = models.TextField("Plan of Day")
     eod = models.TextField("End of Day", blank=True, null=True)
@@ -105,4 +105,54 @@ class Message(models.Model):
         ordering = ['timestamp']
 
     def __str__(self):
+
         return f"{self.sender.user.username}: {self.message[:20]}"
+
+
+
+from django.db import models
+from django.conf import settings
+from django.utils import timezone
+
+
+def vault_file_path(instance, filename):
+    return f"vault/{instance.owner.id}/{filename}"
+
+
+class EmployeeVaultFile(models.Model):
+    """
+    Secure file vault for each employee, with optional sharing.
+    """
+
+    owner = models.ForeignKey(
+        "EmployeeProfile",
+        on_delete=models.CASCADE,
+        related_name="vault_files",
+    )
+    title = models.CharField(max_length=255, blank=True)
+    description = models.TextField(blank=True)
+    file = models.FileField(upload_to=vault_file_path)
+    uploaded_at = models.DateTimeField(default=timezone.now)
+
+    # Access control
+    shared_with = models.ManyToManyField(
+        "EmployeeProfile",
+        related_name="shared_vault_files",
+        blank=True,
+        help_text="Users who can access this file",
+    )
+
+    is_public = models.BooleanField(default=False)
+    download_count = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['-uploaded_at']
+        verbose_name = "Vault File"
+        verbose_name_plural = "Vault Files"
+
+    def __str__(self):
+        return self.title or self.file.name.split("/")[-1]
+
+    @property
+    def filename(self):
+        return self.file.name.split("/")[-1]

@@ -1,0 +1,11 @@
+<h3>Files Shared With {{ profile.user.username }}</h3>
+<ul>
+  {% for f in shared_files %}
+    <li>
+      <a href="{% url 'download_vault_file' f.id %}">{{ f.filename }}</a>
+      <small>Uploaded by {{ f.owner.user.username }}</small>
+    </li>
+  {% empty %}
+    <li>No shared files.</li>
+  {% endfor %}
+</ul>

@@ -3954,3 +3954,395 @@ ssages/
 2025-10-07 11:27:44.211801+00:00 - User:4 (Smrithi) - GET - /media/
 2025-10-07 11:29:36.649035+00:00 - User:4 (Smrithi) - GET - /home/
 2025-10-07 11:29:36.674111+00:00 - User:4 (Smrithi) - GET - /media/
+2025-10-07 16:01:17.640742+00:00 - User:4 (Smrithi) - GET - /
+2025-10-07 16:01:30.089970+00:00 - User:4 (Smrithi) - GET - /register/
+2025-10-07 16:02:31.567304+00:00 - User:5 (Alwin) - POST - /register/
+2025-10-07 16:02:31.590954+00:00 - User:5 (Alwin) - GET - /home/
+2025-10-07 16:02:31.629990+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:02:31.669194+00:00 - User:5 (Alwin) - GET - /media/profile_images/49a995ee-27a6-40db-98a6-c8fb818692dd_tzR7IIy.jpg
+2025-10-07 16:02:31.677193+00:00 - User:5 (Alwin) - GET - /media/profile_images/6100127375061797401.jpg
+2025-10-07 16:02:56.603084+00:00 - User:5 (Alwin) - POST - /home/
+2025-10-07 16:02:56.629946+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:03:02.282893+00:00 - User:5 (Alwin) - GET - /my-daily-logs/
+2025-10-07 16:03:02.376464+00:00 - User:5 (Alwin) - GET - /favicon.ico
+2025-10-07 16:03:08.333487+00:00 - User:5 (Alwin) - GET - /list/
+2025-10-07 16:03:10.913910+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-07 16:03:10.918911+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-07 16:03:16.320516+00:00 - User:Anonymous (Anonymous) - POST - /
+2025-10-07 16:03:22.883911+00:00 - User:2 (Shijin Bs) - POST - /
+2025-10-07 16:03:22.908713+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:03:22.929155+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:03:23.187304+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:03:24.719968+00:00 - User:2 (Shijin Bs) - GET - /list/
+2025-10-07 16:03:26.265578+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:03:26.293283+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:03:26.559711+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:03:31.943720+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-07 16:03:31.947720+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-07 16:03:37.778492+00:00 - User:1 (admin) - POST - /
+2025-10-07 16:03:37.803102+00:00 - User:1 (admin) - GET - /home/
+2025-10-07 16:03:37.831621+00:00 - User:1 (admin) - GET - /media/
+2025-10-07 16:03:38.125699+00:00 - User:1 (admin) - GET - /media/
+2025-10-07 16:03:40.280024+00:00 - User:1 (admin) - GET - /employees1/
+2025-10-07 16:03:43.040217+00:00 - User:1 (admin) - POST - /employees1/
+2025-10-07 16:03:43.050766+00:00 - User:1 (admin) - GET - /employees1/
+2025-10-07 16:03:45.247996+00:00 - User:1 (admin) - POST - /employees1/
+2025-10-07 16:03:45.257090+00:00 - User:1 (admin) - GET - /employees1/
+2025-10-07 16:03:46.168283+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-07 16:03:46.172896+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-07 16:03:51.687871+00:00 - User:2 (Shijin Bs) - POST - /
+2025-10-07 16:03:51.712757+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:03:51.744507+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:03:52.002030+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:03:53.069097+00:00 - User:2 (Shijin Bs) - GET - /assign-job/
+2025-10-07 16:04:00.974357+00:00 - User:2 (Shijin Bs) - POST - /assign-job/
+2025-10-07 16:04:00.986485+00:00 - User:2 (Shijin Bs) - GET - /assign-job/
+2025-10-07 16:04:03.015134+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-07 16:04:03.019478+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-07 16:04:20.764142+00:00 - User:Anonymous (Anonymous) - POST - /
+2025-10-07 16:04:25.197177+00:00 - User:2 (Shijin Bs) - POST - /
+2025-10-07 16:04:25.223277+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:04:25.244870+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:04:25.538808+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:04:29.770761+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-07 16:04:29.775207+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-07 16:04:45.521105+00:00 - User:5 (Alwin) - POST - /
+2025-10-07 16:04:45.546372+00:00 - User:5 (Alwin) - GET - /home/
+2025-10-07 16:04:45.573785+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:05:00.257756+00:00 - User:5 (Alwin) - POST - /tasks/complete/1/
+2025-10-07 16:05:00.273234+00:00 - User:5 (Alwin) - GET - /home/
+2025-10-07 16:05:00.296490+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:05:02.658214+00:00 - User:5 (Alwin) - GET - /list/
+2025-10-07 16:05:14.791435+00:00 - User:5 (Alwin) - GET - /my-daily-logs/
+2025-10-07 16:05:24.855005+00:00 - User:5 (Alwin) - GET - /profile/
+2025-10-07 16:05:24.880824+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:05:26.132405+00:00 - User:5 (Alwin) - GET - /my-daily-logs/
+2025-10-07 16:06:31.273150+00:00 - User:5 (Alwin) - GET - /
+2025-10-07 16:06:45.338326+00:00 - User:5 (Alwin) - POST - /
+2025-10-07 16:06:45.368979+00:00 - User:5 (Alwin) - GET - /home/
+2025-10-07 16:06:45.406065+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:06:45.440800+00:00 - User:5 (Alwin) - GET - /media/profile_images/49a995ee-27a6-40db-98a6-c8fb818692dd_tzR7IIy.jpg
+2025-10-07 16:06:45.454212+00:00 - User:5 (Alwin) - GET - /media/profile_images/6100127375061797401.jpg
+2025-10-07 16:06:57.517012+00:00 - User:5 (Alwin) - GET - /chat/start/2/
+2025-10-07 16:06:57.824894+00:00 - User:5 (Alwin) - POST - /chat/4/mark_messages_seen/
+2025-10-07 16:07:02.818240+00:00 - User:5 (Alwin) - POST - /chat/4/mark_messages_seen/
+2025-10-07 16:07:02.818240+00:00 - User:5 (Alwin) - GET - /chat/4/check_unseen_messages/
+2025-10-07 16:07:02.824254+00:00 - User:5 (Alwin) - GET - /chat/4/get_messages/
+2025-10-07 16:07:06.486899+00:00 - User:5 (Alwin) - POST - /chat/4/send_message/
+2025-10-07 16:07:07.809117+00:00 - User:5 (Alwin) - POST - /chat/4/mark_messages_seen/
+2025-10-07 16:07:07.809117+00:00 - User:5 (Alwin) - GET - /chat/4/check_unseen_messages/
+2025-10-07 16:07:07.833455+00:00 - User:5 (Alwin) - GET - /chat/4/get_messages/
+2025-10-07 16:07:09.131605+00:00 - User:5 (Alwin) - GET - /home/
+2025-10-07 16:07:09.162710+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:07:29.445381+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-07 16:07:29.448711+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-07 16:07:34.025039+00:00 - User:2 (Shijin Bs) - POST - /
+2025-10-07 16:07:34.054232+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:07:34.084036+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:07:34.376360+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:07:36.787654+00:00 - User:2 (Shijin Bs) - GET - /assign-job/
+2025-10-07 16:07:47.157801+00:00 - User:2 (Shijin Bs) - POST - /assign-job/
+2025-10-07 16:07:47.169216+00:00 - User:2 (Shijin Bs) - GET - /assign-job/
+2025-10-07 16:07:49.199288+00:00 - User:2 (Shijin Bs) - GET - /list/
+2025-10-07 16:07:52.522788+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:07:52.554210+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:07:52.814847+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:07:56.424893+00:00 - User:2 (Shijin Bs) - GET - /chat/start/5/
+2025-10-07 16:07:56.450023+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:07:56.723336+00:00 - User:2 (Shijin Bs) - POST - /chat/4/mark_messages_seen/
+2025-10-07 16:08:01.709932+00:00 - User:2 (Shijin Bs) - GET - /chat/4/check_unseen_messages/
+2025-10-07 16:08:01.717687+00:00 - User:2 (Shijin Bs) - POST - /chat/4/mark_messages_seen/
+2025-10-07 16:08:01.729662+00:00 - User:2 (Shijin Bs) - GET - /chat/4/get_messages/
+2025-10-07 16:08:01.815832+00:00 - User:2 (Shijin Bs) - POST - /chat/4/send_message/
+2025-10-07 16:08:03.905509+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:08:03.935070+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:08:04.202395+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:08:10.939058+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-07 16:08:10.943569+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-07 16:08:24.563708+00:00 - User:3 (Home) - POST - /
+2025-10-07 16:08:24.591167+00:00 - User:3 (Home) - GET - /home/
+2025-10-07 16:08:24.619614+00:00 - User:3 (Home) - GET - /media/profile_images/49a995ee-27a6-40db-98a6-c8fb818692dd_tzR7IIy.jpg
+2025-10-07 16:08:24.620769+00:00 - User:3 (Home) - GET - /media/
+2025-10-07 16:08:31.104204+00:00 - User:3 (Home) - POST - /jobs/reassign/2/
+2025-10-07 16:08:31.119933+00:00 - User:3 (Home) - GET - /home/
+2025-10-07 16:08:31.142236+00:00 - User:3 (Home) - GET - /media/
+2025-10-07 16:08:33.673937+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-07 16:08:33.678937+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-07 16:08:52.057305+00:00 - User:5 (Alwin) - POST - /
+2025-10-07 16:08:52.086114+00:00 - User:5 (Alwin) - GET - /home/
+2025-10-07 16:08:52.118570+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:09:11.764484+00:00 - User:5 (Alwin) - GET - /chat/start/2/
+2025-10-07 16:09:12.080648+00:00 - User:5 (Alwin) - POST - /chat/4/mark_messages_seen/
+2025-10-07 16:09:14.481871+00:00 - User:5 (Alwin) - GET - /home/
+2025-10-07 16:09:14.515543+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:09:26.710017+00:00 - User:5 (Alwin) - POST - /home/
+2025-10-07 16:09:26.731086+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:09:35.107324+00:00 - User:5 (Alwin) - GET - /list/
+2025-10-07 16:09:35.948596+00:00 - User:5 (Alwin) - GET - /my-daily-logs/
+2025-10-07 16:09:39.786780+00:00 - User:5 (Alwin) - GET - /list/
+2025-10-07 16:09:40.875044+00:00 - User:5 (Alwin) - GET - /list/
+2025-10-07 16:09:50.542306+00:00 - User:5 (Alwin) - GET - /home/
+2025-10-07 16:09:50.567398+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:09:59.026264+00:00 - User:5 (Alwin) - GET - /my-daily-logs/
+2025-10-07 16:10:38.706112+00:00 - User:5 (Alwin) - GET - /home/
+2025-10-07 16:10:38.728146+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:10:38.989675+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:10:45.255101+00:00 - User:5 (Alwin) - POST - /home/
+2025-10-07 16:10:45.277181+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:10:45.537029+00:00 - User:5 (Alwin) - GET - /media/
+2025-10-07 16:10:48.095614+00:00 - User:5 (Alwin) - GET - /my-daily-logs/
+2025-10-07 16:11:40.682855+00:00 - User:5 (Alwin) - GET - /list/
+2025-10-07 16:11:47.956839+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-07 16:11:47.961606+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-07 16:11:53.638187+00:00 - User:2 (Shijin Bs) - POST - /
+2025-10-07 16:11:53.660572+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:11:53.691685+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:11:53.948048+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:12:22.606579+00:00 - User:2 (Shijin Bs) - GET - /employees1/
+2025-10-07 16:12:27.152879+00:00 - User:2 (Shijin Bs) - GET - /my-daily-logs/
+2025-10-07 16:13:06.519626+00:00 - User:2 (Shijin Bs) - GET - /profile/
+2025-10-07 16:13:14.725470+00:00 - User:2 (Shijin Bs) - POST - /profile/
+2025-10-07 16:13:14.785286+00:00 - User:2 (Shijin Bs) - GET - /media/profile_images/6078140144688415412_lJz6dAr.jpg
+2025-10-07 16:13:16.791073+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:13:16.817595+00:00 - User:2 (Shijin Bs) - GET - /media/profile_images/6078140144688415412_lJz6dAr.jpg
+2025-10-07 16:13:16.819618+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:13:17.074996+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:13:41.259024+00:00 - User:2 (Shijin Bs) - GET - /list/
+2025-10-07 16:13:51.138855+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:13:51.166363+00:00 - User:2 (Shijin Bs) - GET - /media/profile_images/6078140144688415412_lJz6dAr.jpg
+2025-10-07 16:13:51.167363+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:13:51.449680+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:13:55.382706+00:00 - User:2 (Shijin Bs) - GET - /list/
+2025-10-07 16:19:33.988839+00:00 - User:2 (Shijin Bs) - GET - /
+2025-10-07 16:19:38.844508+00:00 - User:2 (Shijin Bs) - POST - /
+2025-10-07 16:19:38.880146+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:19:38.910919+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:19:38.939613+00:00 - User:2 (Shijin Bs) - GET - /media/profile_images/6078140144688415412_lJz6dAr.jpg
+2025-10-07 16:19:38.953120+00:00 - User:2 (Shijin Bs) - GET - /media/profile_images/6100127375061797401.jpg
+2025-10-07 16:19:39.168994+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:19:44.530486+00:00 - User:2 (Shijin Bs) - POST - /home/
+2025-10-07 16:19:44.543608+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:19:44.563544+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:19:44.838901+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:19:53.640121+00:00 - User:2 (Shijin Bs) - POST - /home/
+2025-10-07 16:19:53.651671+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-07 16:19:53.672113+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:19:53.974654+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-07 16:19:57.667158+00:00 - User:2 (Shijin Bs) - GET - /my-daily-logs/
+2025-10-07 16:20:31.360251+00:00 - User:2 (Shijin Bs) - GET - /my-daily-logs/
+2025-10-07 16:20:48.213453+00:00 - User:2 (Shijin Bs) - GET - /my-daily-logs/
+2025-10-08 06:42:23.558761+00:00 - User:2 (Shijin Bs) - GET - /
+2025-10-08 06:42:34.585672+00:00 - User:4 (Smrithi) - POST - /
+2025-10-08 06:42:34.676046+00:00 - User:4 (Smrithi) - GET - /home/
+2025-10-08 06:42:34.702206+00:00 - User:4 (Smrithi) - GET - /media/profile_images/6078140144688415412_lJz6dAr.jpg
+2025-10-08 06:42:34.715069+00:00 - User:4 (Smrithi) - GET - /media/profile_images/6100127375061797401.jpg
+2025-10-08 06:42:34.717072+00:00 - User:4 (Smrithi) - GET - /media/
+2025-10-08 06:42:34.981036+00:00 - User:4 (Smrithi) - GET - /media/
+2025-10-08 06:42:53.401200+00:00 - User:4 (Smrithi) - POST - /home/
+2025-10-08 06:42:53.413796+00:00 - User:4 (Smrithi) - GET - /home/
+2025-10-08 06:42:53.441365+00:00 - User:4 (Smrithi) - GET - /media/
+2025-10-08 06:42:53.712230+00:00 - User:4 (Smrithi) - GET - /media/
+2025-10-08 06:42:59.630719+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-08 06:42:59.634726+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-08 06:43:07.962513+00:00 - User:3 (Home) - POST - /
+2025-10-08 06:43:07.992686+00:00 - User:3 (Home) - GET - /home/
+2025-10-08 06:43:08.023600+00:00 - User:3 (Home) - GET - /media/
+2025-10-08 06:43:08.294250+00:00 - User:3 (Home) - GET - /media/
+2025-10-08 06:43:12.326274+00:00 - User:3 (Home) - GET - /my-daily-logs/
+2025-10-08 06:43:15.909791+00:00 - User:3 (Home) - GET - /my-daily-logs/
+2025-10-08 06:43:16.737556+00:00 - User:3 (Home) - GET - /my-daily-logs/
+2025-10-08 06:43:20.277550+00:00 - User:3 (Home) - GET - /all-employees-pod/
+2025-10-08 06:43:40.923639+00:00 - User:3 (Home) - GET - /home/
+2025-10-08 06:43:40.952380+00:00 - User:3 (Home) - GET - /media/
+2025-10-08 06:43:41.218450+00:00 - User:3 (Home) - GET - /media/
+2025-10-08 06:43:51.194746+00:00 - User:3 (Home) - GET - /assign-job/
+2025-10-08 06:44:22.518947+00:00 - User:3 (Home) - POST - /assign-job/
+2025-10-08 06:44:22.528889+00:00 - User:3 (Home) - GET - /assign-job/
+2025-10-08 06:44:25.139094+00:00 - User:3 (Home) - GET - /list/
+2025-10-08 06:44:33.960220+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-08 06:44:33.965727+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-08 06:44:38.734305+00:00 - User:2 (Shijin Bs) - POST - /
+2025-10-08 06:44:38.767909+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-08 06:44:38.802158+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 06:44:39.080346+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 06:44:49.698476+00:00 - User:2 (Shijin Bs) - POST - /jobs/reassign/3/
+2025-10-08 06:44:49.712383+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-08 06:44:49.734916+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 06:44:49.996362+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 06:44:52.641108+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-08 06:44:52.647111+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-08 06:45:04.180471+00:00 - User:4 (Smrithi) - POST - /
+2025-10-08 06:45:04.203551+00:00 - User:4 (Smrithi) - GET - /home/
+2025-10-08 06:45:04.235437+00:00 - User:4 (Smrithi) - GET - /media/
+2025-10-08 06:45:04.496504+00:00 - User:4 (Smrithi) - GET - /media/
+2025-10-08 06:45:16.690427+00:00 - User:4 (Smrithi) - POST - /tasks/complete/3/
+2025-10-08 06:45:16.703667+00:00 - User:4 (Smrithi) - GET - /home/
+2025-10-08 06:45:16.727242+00:00 - User:4 (Smrithi) - GET - /media/
+2025-10-08 06:45:16.984508+00:00 - User:4 (Smrithi) - GET - /media/
+2025-10-08 06:45:18.551196+00:00 - User:4 (Smrithi) - GET - /list/
+2025-10-08 06:45:33.506680+00:00 - User:4 (Smrithi) - GET - /home/
+2025-10-08 06:45:33.536154+00:00 - User:4 (Smrithi) - GET - /media/
+2025-10-08 06:45:33.838549+00:00 - User:4 (Smrithi) - GET - /media/
+2025-10-08 06:45:42.224093+00:00 - User:4 (Smrithi) - GET - /chat/start/2/
+2025-10-08 06:45:42.547676+00:00 - User:4 (Smrithi) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:45:47.533324+00:00 - User:4 (Smrithi) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:45:47.533324+00:00 - User:4 (Smrithi) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:45:47.578577+00:00 - User:4 (Smrithi) - GET - /chat/2/get_messages/
+2025-10-08 06:45:52.106834+00:00 - User:4 (Smrithi) - POST - /chat/2/send_message/
+2025-10-08 06:45:52.529723+00:00 - User:4 (Smrithi) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:45:52.531726+00:00 - User:4 (Smrithi) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:45:52.584853+00:00 - User:4 (Smrithi) - GET - /chat/2/get_messages/
+2025-10-08 06:45:54.210217+00:00 - User:Anonymous (Anonymous) - GET - /logout/
+2025-10-08 06:45:54.214724+00:00 - User:Anonymous (Anonymous) - GET - /
+2025-10-08 06:45:58.701604+00:00 - User:2 (Shijin Bs) - POST - /
+2025-10-08 06:45:58.722467+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-08 06:45:58.754747+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 06:45:59.009989+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 06:46:01.875719+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-08 06:46:01.901175+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 06:46:02.161074+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 06:46:04.153315+00:00 - User:2 (Shijin Bs) - GET - /chat/start/2/
+2025-10-08 06:46:04.182403+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 06:46:04.476371+00:00 - User:2 (Shijin Bs) - POST - /chat/1/mark_messages_seen/
+2025-10-08 06:46:13.931655+00:00 - User:2 (Shijin Bs) - GET - /chat/start/3/
+2025-10-08 06:46:13.961627+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 06:46:14.248934+00:00 - User:2 (Shijin Bs) - POST - /chat/1/mark_messages_seen/
+2025-10-08 06:46:19.250298+00:00 - User:2 (Shijin Bs) - POST - /chat/1/mark_messages_seen/
+2025-10-08 06:46:19.250298+00:00 - User:2 (Shijin Bs) - GET - /chat/1/check_unseen_messages/
+2025-10-08 06:46:19.267205+00:00 - User:2 (Shijin Bs) - GET - /chat/1/get_messages/
+2025-10-08 06:46:24.255429+00:00 - User:2 (Shijin Bs) - POST - /chat/1/mark_messages_seen/
+2025-10-08 06:46:24.264924+00:00 - User:2 (Shijin Bs) - GET - /chat/1/get_messages/
+2025-10-08 06:46:24.267969+00:00 - User:2 (Shijin Bs) - GET - /chat/1/check_unseen_messages/
+2025-10-08 06:46:24.878883+00:00 - User:2 (Shijin Bs) - GET - /list/
+2025-10-08 06:46:28.000815+00:00 - User:2 (Shijin Bs) - GET - /profile/
+2025-10-08 06:48:40.701386+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-08 06:48:40.731236+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 06:48:41.057934+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 06:48:43.536590+00:00 - User:2 (Shijin Bs) - GET - /chat/start/4/
+2025-10-08 06:48:43.858930+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:48:48.844137+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:48:48.844137+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:48:48.878141+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:48:53.830516+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:48:53.830516+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:48:53.883436+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:48:59.304378+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:48:59.319887+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:48:59.348355+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:49:04.297376+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:49:04.297376+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:49:04.329719+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:49:09.297734+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:49:09.303486+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:49:09.345117+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:49:14.283599+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:49:14.283599+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:49:14.314869+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:49:19.293960+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:49:19.299715+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:49:19.348318+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:49:24.288900+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:49:24.304403+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:49:24.331912+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:49:29.285406+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:49:29.287410+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:49:29.324325+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:49:34.288763+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:49:34.290769+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:49:34.321143+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:49:39.297363+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:49:39.297363+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:49:39.327163+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:49:44.298446+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:49:44.305459+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:49:44.347398+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:49:49.283549+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:49:49.289032+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:49:49.331142+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:49:54.284032+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:49:54.290043+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:49:54.339689+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:50:27.286965+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:50:27.291020+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:50:27.330333+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:50:37.590192+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:50:37.621892+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:50:38.838758+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:50:38.838758+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:50:38.892784+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:50:44.288152+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:50:44.293152+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:50:44.335235+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:50:49.288430+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:50:49.289430+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:50:49.319430+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:50:53.844226+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:50:53.844226+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:50:53.877856+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:50:59.287655+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:50:59.293680+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:50:59.333231+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:51:04.292555+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:51:04.292555+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:51:04.318913+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:51:09.301109+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:51:09.301109+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:51:09.328650+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:51:14.319108+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:51:14.323535+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:51:14.348023+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 06:51:19.303263+00:00 - User:2 (Shijin Bs) - POST - /chat/2/mark_messages_seen/
+2025-10-08 06:51:19.319251+00:00 - User:2 (Shijin Bs) - GET - /chat/2/check_unseen_messages/
+2025-10-08 06:51:19.344363+00:00 - User:2 (Shijin Bs) - GET - /chat/2/get_messages/
+2025-10-08 07:38:36.582693+00:00 - User:2 (Shijin Bs) - GET - /
+2025-10-08 07:38:40.839151+00:00 - User:1 (admin) - POST - /
+2025-10-08 07:38:41.002712+00:00 - User:1 (admin) - GET - /home/
+2025-10-08 07:38:41.105822+00:00 - User:1 (admin) - GET - /favicon.ico
+2025-10-08 07:38:58.068555+00:00 - User:1 (admin) - POST - /
+2025-10-08 07:39:01.620287+00:00 - User:1 (admin) - POST - /
+2025-10-08 07:39:03.560722+00:00 - User:1 (admin) - GET - /
+2025-10-08 07:39:04.936511+00:00 - User:1 (admin) - GET - /
+2025-10-08 07:39:05.410724+00:00 - User:1 (admin) - GET - /
+2025-10-08 07:39:14.756892+00:00 - User:3 (Home) - POST - /
+2025-10-08 07:39:14.860877+00:00 - User:3 (Home) - GET - /home/
+2025-10-08 07:39:27.293220+00:00 - User:3 (Home) - POST - /chat/2/mark_messages_seen/
+2025-10-08 07:39:27.309441+00:00 - User:3 (Home) - GET - /chat/2/check_unseen_messages/
+2025-10-08 07:39:27.310176+00:00 - User:3 (Home) - GET - /chat/2/get_messages/
+2025-10-08 07:40:10.124663+00:00 - User:3 (Home) - GET - /home/
+2025-10-08 07:40:10.145881+00:00 - User:3 (Home) - GET - /media/
+2025-10-08 07:40:10.174580+00:00 - User:3 (Home) - GET - /media/profile_images/6078140144688415412_lJz6dAr.jpg
+2025-10-08 07:40:10.189143+00:00 - User:3 (Home) - GET - /media/profile_images/6100127375061797401.jpg
+2025-10-08 07:40:10.422648+00:00 - User:3 (Home) - GET - /media/
+2025-10-08 07:40:12.008196+00:00 - User:3 (Home) - GET - /Vault
+2025-10-08 07:40:27.283257+00:00 - User:3 (Home) - POST - /chat/2/mark_messages_seen/
+2025-10-08 07:40:27.283257+00:00 - User:3 (Home) - GET - /chat/2/check_unseen_messages/
+2025-10-08 07:40:27.285263+00:00 - User:3 (Home) - GET - /chat/2/get_messages/
+2025-10-08 07:41:27.319942+00:00 - User:3 (Home) - POST - /chat/2/mark_messages_seen/
+2025-10-08 07:41:27.335041+00:00 - User:3 (Home) - GET - /chat/2/check_unseen_messages/
+2025-10-08 07:41:27.335041+00:00 - User:3 (Home) - GET - /chat/2/get_messages/
+2025-10-08 07:41:30.150673+00:00 - User:3 (Home) - GET - /
+2025-10-08 07:41:33.541995+00:00 - User:3 (Home) - POST - /chat/2/mark_messages_seen/
+2025-10-08 07:41:33.544329+00:00 - User:3 (Home) - GET - /chat/2/check_unseen_messages/
+2025-10-08 07:41:33.544329+00:00 - User:3 (Home) - GET - /chat/2/get_messages/
+2025-10-08 07:41:33.833730+00:00 - User:3 (Home) - POST - /chat/2/mark_messages_seen/
+2025-10-08 07:41:33.833730+00:00 - User:3 (Home) - GET - /chat/2/check_unseen_messages/
+2025-10-08 07:41:33.863582+00:00 - User:3 (Home) - GET - /chat/2/get_messages/
+2025-10-08 07:41:45.876079+00:00 - User:3 (Home) - POST - /
+2025-10-08 07:41:45.908309+00:00 - User:3 (Home) - GET - /home/
+2025-10-08 07:41:45.941696+00:00 - User:3 (Home) - GET - /media/
+2025-10-08 07:41:45.973994+00:00 - User:3 (Home) - GET - /media/profile_images/6078140144688415412_lJz6dAr.jpg
+2025-10-08 07:41:45.983168+00:00 - User:3 (Home) - GET - /media/profile_images/6100127375061797401.jpg
+2025-10-08 07:41:46.221120+00:00 - User:3 (Home) - GET - /media/
+2025-10-08 07:41:50.069364+00:00 - User:3 (Home) - GET - /Vault/
+2025-10-08 07:48:02.331445+00:00 - User:3 (Home) - GET - /
+2025-10-08 07:48:09.782592+00:00 - User:2 (Shijin Bs) - POST - /
+2025-10-08 07:48:09.814692+00:00 - User:2 (Shijin Bs) - GET - /home/
+2025-10-08 07:48:09.847692+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 07:48:09.885256+00:00 - User:2 (Shijin Bs) - GET - /media/profile_images/6078140144688415412_lJz6dAr.jpg
+2025-10-08 07:48:09.894959+00:00 - User:2 (Shijin Bs) - GET - /media/profile_images/6100127375061797401.jpg
+2025-10-08 07:48:10.130084+00:00 - User:2 (Shijin Bs) - GET - /media/
+2025-10-08 07:48:11.207572+00:00 - User:2 (Shijin Bs) - GET - /Vault/
+2025-10-08 07:51:47.753805+00:00 - User:2 (Shijin Bs) - GET - /Vault/
+2025-10-08 07:51:49.248494+00:00 - User:2 (Shijin Bs) - GET - /upload/
+2025-10-08 07:52:31.016087+00:00 - User:2 (Shijin Bs) - POST - /upload/
+2025-10-08 07:52:31.029040+00:00 - User:2 (Shijin Bs) - GET - /Vault/

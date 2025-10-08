@@ -1,0 +1,22 @@
+<h2>My Vault Files</h2>
+
+<a href="{% url 'upload_vault_file' %}" class="btn btn-primary mb-3">Upload New File</a>
+
+<ul>
+  {% for f in files %}
+    <li>
+      <strong>{{ f.title|default:f.filename }}</strong>
+      <br>
+      Uploaded by: {{ f.owner.user.username }}
+      {% if f.shared_with.exists %}
+        <br><small>Shared with: {{ f.shared_with.all|join:", " }}</small>
+      {% endif %}
+      <br>
+      <a href="{% url 'download_vault_file' f.id %}">Download</a>
+      <br>
+      <small>{{ f.uploaded_at|date:"d M Y H:i" }} — Downloads: {{ f.download_count }}</small>
+    </li>
+  {% empty %}
+    <li>No files available.</li>
+  {% endfor %}
+</ul>

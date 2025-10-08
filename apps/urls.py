@@ -33,6 +33,10 @@ urlpatterns=[
 
     # Mark messages as seen
     path('chat/<int:conversation_id>/mark_messages_seen/', mark_messages_as_seen, name='mark_messages_as_seen'),
+      path('upload/', upload_vault_file, name='upload_vault_file'),
+    path('download/<int:file_id>/', download_vault_file, name='download_vault_file'),
+     path('Vault/',vault_list, name='vault_list')
+
 
 
 

@@ -36,13 +36,6 @@ from datetime import date
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import EmployeeProfile, JobAssignment, DailyLog
-from django.db.models import Q, Count
-from datetime import date
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
-from .models import Conversation, Message, EmployeeProfile, JobAssignment, DailyLog
-
-
 @login_required
 def home(request):
     user = request.user
@@ -64,7 +57,7 @@ def home(request):
         log, created = None, False
         print(f"Error fetching/creating log: {e}")
 
-    # Active job assignments
+    # All jobs for dropdown (only active ones)
     try:
         assignments = JobAssignment.objects.filter(
             assigned_to=employee, is_completed=False
@@ -73,26 +66,9 @@ def home(request):
         assignments = []
         print(f"Error fetching assignments: {e}")
 
-    # ✅ Unseen message count per employee
-    employees = EmployeeProfile.objects.select_related('user').exclude(user=request.user).all()
-    for emp in employees:
-        # Find conversation between current user and this employee
-        conversation = Conversation.objects.filter(participants=employee).filter(participants=emp).first()
-
-        if conversation:
-            unseen_count = Message.objects.filter(
-                conversation=conversation,
-                sender=emp,              # Messages sent by that employee
-                is_seen=False            # Not yet seen by the current user
-            ).count()
-        else:
-            unseen_count = 0
-
-        emp.unseen_count = unseen_count  # Attach dynamic attribute
-
     if request.method == "POST" and log:
         try:
-            # Handle POD and EOD submission logic
+            # If POD is not yet submitted, update POD + job
             if not log.pod:
                 log.pod = request.POST.get("pod", "")
                 related_assignment_id = request.POST.get("related_assignment")
@@ -102,6 +78,7 @@ def home(request):
                     )
                 log.save()
 
+            # If POD is already submitted and EOD is not, allow EOD submission
             if log.pod and not log.eod:
                 log.eod = request.POST.get("eod", "")
                 log.is_eod_submitted = True
@@ -115,11 +92,11 @@ def home(request):
         'user': user,
         'employee': employee,
         'total_employees': EmployeeProfile.objects.count(),
-        'employee_list': employees,
+        'employee_list': EmployeeProfile.objects.select_related('user').all(),
         'jobs': jobs,
         'completed_jobs': completed_jobs,
         'assignments': assignments,
-        'log': log,
+        'log': log,  # Pass the daily log object (may be None if error)
     }
     return render(request, 'home.html', context)
 
@@ -920,3 +897,67 @@ def mark_messages_as_seen(request, conversation_id):
         return JsonResponse({'status': 'success'})
     else:
         return JsonResponse({'error': 'POST method required'}, status=400)
+    
+
+    from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.http import FileResponse, HttpResponseForbidden
+from .models import EmployeeVaultFile
+from .forms import VaultFileForm
+
+
+@login_required
+def vault_list(request):
+    profile = request.user.employeeprofile
+    # Combine files owned by the user and shared with the user
+    files = EmployeeVaultFile.objects.filter(owner=profile) | profile.shared_vault_files.all()
+    return render(request, "list.html", {"files": files.distinct()})
+
+
+@login_required
+def upload_vault_file(request):
+    if request.method == "POST":
+        form = VaultFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            vault_file = form.save(commit=False)
+            vault_file.owner = request.user.employeeprofile
+            vault_file.save()
+            form.save_m2m()
+            return redirect("vault_list")
+    else:
+        form = VaultFileForm()
+    return render(request, "upload.html", {"form": form})
+
+
+@login_required
+def download_vault_file(request, file_id):
+    file_obj = get_object_or_404(EmployeeVaultFile, id=file_id)
+    profile = request.user.employeeprofile
+
+    # Check access rights
+    if not (
+        file_obj.owner == profile
+        or profile in file_obj.shared_with.all()
+        or file_obj.is_public
+    ):
+        return HttpResponseForbidden("You are not allowed to access this file.")
+
+    file_obj.download_count += 1
+    file_obj.save(update_fields=["download_count"])
+    return FileResponse(file_obj.file.open("rb"), as_attachment=True)
+
+
+
+
+@login_required
+def employee_profile_view1(request, employee_id):
+    profile = get_object_or_404(EmployeeProfile, id=employee_id)
+
+    # Files shared with this employee
+    shared_files = EmployeeVaultFile.objects.filter(shared_with=profile)
+
+    return render(
+        request,
+        "profile1.html",
+        {"profile": profile, "shared_files": shared_files},
+    )

@@ -39,11 +39,7 @@
               {% endif %}
             </td>
             <td>
-    {% if log.can_edit %}
-      <a href="{% url 'edit_daily_log' log.id %}" class="btn btn-sm btn-warning">Edit</a>
-    {% else %}
-      <span class="text-muted">Edit Locked</span>
-    {% endif %}
+
   </td>
           </tr>
           {% endfor %}
